@@ -74,5 +74,32 @@ namespace Testes_Target
             Console.WriteLine("Pressione alguma tecla para continuar...");
             Console.ReadLine();
         }
+
+        public void Exercicio4() 
+        {
+            Console.WriteLine("Dois veículos (um carro e um caminhão) saem respectivamente de cidades opostas pela mesma rodovia. O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?");
+            Console.WriteLine("A resposta é que eles estarão a mesma distância, pois estão se cruzando na rodovia");
+
+        }
+        public void Exercicio5()
+        {
+            Console.WriteLine("Insira uma string para inverter :");
+            string frase = Console.ReadLine();
+            
+            string[] cadeiadeCaracteres = new string[frase.Length];
+
+            //Coloca as letras em uma array
+            for (int i = 0; i < cadeiadeCaracteres.Length; i++)
+            {
+                cadeiadeCaracteres[i] = frase.Substring(0, 1);
+                frase = frase.Substring(1);
+            }
+            //Inverte a array
+            int total = cadeiadeCaracteres.Length;
+            while (true)
+            {
+                //faz o treco aqui 
+            }
+        }
     }
 }
