@@ -21,10 +21,10 @@ namespace Testes_Target
             }
             Console.WriteLine(enunciado);
             Console.WriteLine($"A soma final foi : {SOMA}");
-            
+
         }
 
-        public void Exercicio2() 
+        public void Exercicio2()
         {
             int numero = 0;
             Console.WriteLine("Digite um número para que este seja identificado na sequencia de Fibonacci:");
@@ -41,16 +41,21 @@ namespace Testes_Target
 
             List<int> listaFibonacci = new List<int>();
             int soma = 0;
+            int somaAnterior = 0;
             int proximonumero = 1;
+            listaFibonacci.Add(soma); //Adiciona o primeiro numero da lista , que é 0
             for (int i = 0; i < numero; i++)
             {
-                listaFibonacci[i] = soma;
-                proximonumero += soma ;
-                soma = proximonumero; 
+                soma = somaAnterior + proximonumero;
+                listaFibonacci.Add(soma);
+                if (soma > numero) break; //Isto é para evitar que a lista passe muito mais do que o próximo numero de fibonacci
+                proximonumero = somaAnterior;
+                somaAnterior = soma;
+                
             }
             bool numeroFibonacci = false;
             Console.WriteLine("Lista gerada :");
-            foreach (int lista in listaFibonacci) 
+            foreach (int lista in listaFibonacci)
             {
                 Console.WriteLine(lista.ToString());
                 if (lista == numero)
@@ -59,7 +64,8 @@ namespace Testes_Target
                 }
             }
             Console.WriteLine($"O numero {numero} {(numeroFibonacci ? "é" : "não é")} um numero de Fibonacci");
-
+            Console.WriteLine("Pressione alguma tecla para continuar...");
+            Console.ReadLine();
 
         }
         public void Exercicio3()
@@ -75,17 +81,18 @@ namespace Testes_Target
             Console.ReadLine();
         }
 
-        public void Exercicio4() 
+        public void Exercicio4()
         {
             Console.WriteLine("Dois veículos (um carro e um caminhão) saem respectivamente de cidades opostas pela mesma rodovia. O carro de Ribeirão Preto em direção a Franca, a uma velocidade constante de 110 km/h e o caminhão de Franca em direção a Ribeirão Preto a uma velocidade constante de 80 km/h. Quando eles se cruzarem na rodovia, qual estará mais próximo a cidade de Ribeirão Preto?");
-            Console.WriteLine("A resposta é que eles estarão a mesma distância, pois estão se cruzando na rodovia");
+            
+            Console.WriteLine("A resposta é que eles estarão à mesma distância, pois estão se cruzando na rodovia");
 
         }
         public void Exercicio5()
         {
             Console.WriteLine("Insira uma string para inverter :");
             string frase = Console.ReadLine();
-            
+
             string[] cadeiadeCaracteres = new string[frase.Length];
 
             //Coloca as letras em uma array
@@ -95,11 +102,16 @@ namespace Testes_Target
                 frase = frase.Substring(1);
             }
             //Inverte a array
-            int total = cadeiadeCaracteres.Length;
-            while (true)
+            int total = cadeiadeCaracteres.Length -1 ;
+            string fraseInvertida = "";
+            while (total >= 0)
             {
-                //faz o treco aqui 
+                fraseInvertida += cadeiadeCaracteres[total];
+                total -= 1;
             }
+            Console.WriteLine("Sua frase invertida é :");
+            Console.WriteLine(fraseInvertida);
+
         }
     }
 }
